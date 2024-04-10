@@ -26,3 +26,14 @@ links.forEach(link =>{
         innerCursor.classList.remove("grow");
     })
 })
+
+const catWord = document.getElementById('cat-word');
+const catPopup = document.getElementById('cat-popup');
+
+catWord.addEventListener('click', function() {
+    catPopup.style.display = 'block';
+});
+
+catPopup.addEventListener('click', function() {
+    catPopup.style.display = 'none';
+});
