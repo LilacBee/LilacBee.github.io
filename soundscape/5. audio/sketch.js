@@ -52,7 +52,7 @@ function draw() {
     let calculatedVolumeMetal = map(
       distanceToCircle, // the changing number
       0,      // min expected volume
-      200,  // max expected number
+      100,  // max expected number
       1,      // min output number
       0       // max output number
     )
@@ -61,8 +61,8 @@ function draw() {
       calculatedVolumeMetal, 0, 1
     )
 
-    riverSound.setVolume(calculatedVolume)
-    metalSound.setVolume(calculatedVolume)
+    riverSound.setVolume(calculatedVolume, 2)
+    metalSound.setVolume(calculatedVolume, 2)
 
   }
 
