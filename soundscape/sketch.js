@@ -81,7 +81,7 @@ function draw() {
     let distanceCat = dist(mouseX, mouseY, circleCatX, circleCatY);
     let calculatedVolumeCat = map(0, 50, 1, 0);
     calculatedVolumeCat = constrain(calculatedVolumeCat, 0, 1);
-    catSound.setVolume(calculatedVolume);
+    catSound.setVolume(calculatedVolumeCat);
 
 
 
@@ -93,9 +93,9 @@ function draw() {
     }
 
     let distanceCar = dist(mouseX, mouseY, circleCarX, circleCarY);
-    let calculatedVolumeCar = map(0, 200, 1, 0);
+    let calculatedVolumeCar = map(0, 50, 1, 0);
     calculatedVolumeCar = constrain(calculatedVolumeCar, 0, 1);
-    carSound.setVolume(calculatedVolume);
+    carSound.setVolume(calculatedVolumeCar);
 
 
 
@@ -107,9 +107,9 @@ function draw() {
     }
 
     let distanceBoom = dist(mouseX, mouseY, circleBoomX, circleBoomY);
-    let calculatedVolumeBoom = map(0, 200, 1, 0);
-    calculatedVolume = constrain(calculatedVolumeboom, 1);
-    boomSound.setVolume(calculatedVolume);
+    let calculatedVolumeBoom = map(0, 50, 1, 0);
+    calculatedVolumeBoom = constrain(calculatedVolumeBoom, 0, 1);
+    boomSound.setVolume(calculatedVolumeBoom);
 
 
 
@@ -121,9 +121,9 @@ function draw() {
     }
 
     let distanceBird = dist(mouseX, mouseY, circleBirdX, circleBirdY);
-    let calculatedVolumeBird = map(0, 200, 1, 0);
+    let calculatedVolumeBird = map(0, 50, 1, 0);
     calculatedVolumeBird = constrain(calculatedVolumeBird, 0, 1);
-    birdSound.setVolume(calculatedVolume);
+    birdSound.setVolume(calculatedVolumeBird);
 
 
 
@@ -135,9 +135,9 @@ function draw() {
     }
 
     let distanceChild = dist(mouseX, mouseY, circleChildX, circleChildY);
-    let calculatedVolumeChild = map(0, 200, 1, 0);
+    let calculatedVolumeChild = map(0, 50, 1, 0);
     calculatedVolumeChild = constrain(calculatedVolumeChild, 0, 1);
-    childSound.setVolume(calculatedVolume);
+    childSound.setVolume(calculatedVolumeChild);
 
   }
 
