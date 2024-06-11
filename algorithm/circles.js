@@ -4,7 +4,8 @@ let rolledNumber;
 let rolledNumbers = {};
 
 function setup() {
-  let canvas = createCanvas(1000, 1000); 
+  let canvasSize = min(windowWidth * 0.9, windowHeight * 0.9); // Responsive size
+  let canvas = createCanvas(canvasSize, canvasSize);
   canvas.parent('canvas-container');
   frameRate(5); 
   background(255); 
