@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Character in A-Frame</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!-- Add a light source -->
+        <a-light type="directional" position="1 1 1" intensity="1"></a-light>
+        <a-light type="ambient" color="#445451"></a-light>
+
+        <!-- Add a camera with look-controls and wasd-controls -->
+        <a-entity camera position="0 1.6 3" wasd-controls="enabled: true" look-controls="pointerLockEnabled: true"></a-entity>
+
+        <!-- Container for the 3D model with manually applied texture -->
+        <a-entity id="modelContainer" position="0 0 -2" rotation="0 90 0" scale="0.8 0.8 0.8">
+            <a-entity obj-model="obj: url(bee.obj)" material="src: url(bee.jpg)"></a-entity>
+        </a-entity>
+
+        <!-- Boundary Box (invisible but used for restricting movement) -->
+        <a-box position="0 1 0" width="10" height="2" depth="10" visible="false"></a-box>
+
+        <!-- Camera restrictor -->
+        <a-entity geometry="primitive: box; width: 10; height: 2; depth: 10" material="opacity: 0" static-body></a-entity>
+    </a-scene>
+
+    <script>
+        // Add collision handling
+        AFRAME.registerComponent('restrict-movement', {
+            tick: function () {
+                const position = this.el.object3D.position;
+                const boundary = 5;
+                if (position.x > boundary) position.x = boundary;
+                if (position.x < -boundary) position.x = -boundary;
+                if (position.z > boundary) position.z = boundary;
+                if (position.z < -boundary) position.z = -boundary;
+            }
+        });
+
+        // Apply the component to the camera
+        document.querySelector('[camera]').setAttribute('restrict-movement', '');
+    </script>
+</body>
+</html>
