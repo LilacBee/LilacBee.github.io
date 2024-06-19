@@ -3,28 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Character in A-Frame</title>
+    <title>A-Frame</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 </head>
 <body>
     <a-scene>
         <!-- Add a light source -->
-        <a-light type="directional" position="1 1 1" intensity="1"></a-light>
+        <a-light type="directional" position="1 0 1" intensity="0.5"></a-light>
+        <a-light type="directional" position="-1 1 -1" intensity="0.5"></a-light>
+        <a-light type="directional" position="-1 1 1" intensity="0.5"></a-light>
+        <a-light type="directional" position="1 1 -1" intensity="0.5"></a-light>
         <a-light type="ambient" color="#445451"></a-light>
 
         <!-- Add a camera with look-controls and wasd-controls -->
-        <a-entity camera position="0 1.6 3" wasd-controls="enabled: true" look-controls="pointerLockEnabled: true"></a-entity>
+        <a-entity camera position="0 1.6 3" look-controls="pointerLockEnabled: true"></a-entity>
 
         <!-- Container for the 3D model with manually applied texture -->
-        <a-entity id="modelContainer" position="0 0 -2" rotation="0 90 0" scale="0.8 0.8 0.8">
-            <a-entity obj-model="obj: url(bee.obj)" material="src: url(bee.jpg)"></a-entity>
+        <a-entity id="modelContainer" position="0 0 -5" rotation="0 90 0" scale="2 2 2">
+            <a-entity obj-model="obj: url(bee.obj)" material="src: url(bee.jpg); side: double"></a-entity>
         </a-entity>
 
-        <!-- Boundary Box (invisible but used for restricting movement) -->
-        <a-box position="0 1 0" width="10" height="2" depth="10" visible="false"></a-box>
+      
+     <!-- Cylindrical Boundary with texture visible from inside -->
+     <a-cylinder position="0 5 0" radius="10" height="10" open-ended="true" material="src: url(wall.png); opacity: 1; side: double; repeat: 5 1; "></a-cylinder>
 
-        <!-- Camera restrictor -->
+     <a-sky material="src: url(sky.png); emissive: #ffffff; emissiveIntensity: 1"></a-sky>
+
+
+        <!-- Floor -->
+        <a-plane position="0 0 0" rotation="-90 0 0" width="20" height="20" material="src: url(floor.png); emissive: #ffffff; emissiveIntensity: -0.5"></a-plane>
+
+        <!-- Camera restrictor (invisible) -->
         <a-entity geometry="primitive: box; width: 10; height: 2; depth: 10" material="opacity: 0" static-body></a-entity>
+           <!-- Boundary Box (invisible but used for restricting movement) -->
+         <a-box position="0 1 0" width="4" height="2" depth="4" visible="false"></a-box>
+
+
+         <a-cylinder position="0 2.5 -2" radius="2.5" height="4" open-ended="true" material="src: url(images.png); transparent: true; opacity: 1; repeat: 1 1; " animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 50000; easing: linear;"></a-cylinder>
+
+
+
+
+
     </a-scene>
 
     <script>
