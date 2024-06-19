@@ -10,21 +10,21 @@ function draw() {
 
   let rowHeight = height / 3;
 
-  // Draw light gray triangles in the first row
+
   for (let i = 0; i < 50; i++) {
     fill(200);
     stroke(200);
     drawRandomEquilateralTriangle(0, 0, width, rowHeight);
   }
 
-  // Draw gray triangles in the second row
+
   for (let i = 0; i < 50; i++) {
     fill(150);
     stroke(150);
     drawRandomEquilateralTriangle(0, rowHeight, width, rowHeight);
   }
 
-  // Draw dark gray triangles in the third row
+
   for (let i = 0; i < 50; i++) {
     fill(100);
     stroke(100);

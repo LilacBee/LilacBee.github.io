@@ -28,22 +28,6 @@ function draw(){
         }
     
 
-    // rect(width/2 - 30, height/2 - 30, 50, 50);
-
-    // if (
-    //     mouseX < width/2
-    //     &&
-    //     mouseY < height/2
-    // ){
-    //     circle(mouseX, mouseY, 50);
-    // }
-    
-    // if (
-    //     mouseX > width/2
-    //     &&
-    //     mouseY > height/2
-    //     ) {
-    //     square(mouseX, mouseY, 50);
-    // }
+  
 }
 

@@ -8,34 +8,32 @@
 </head>
 <body>
     <a-scene>
-        <!-- Add a light source -->
+
         <a-light type="directional" position="1 0 1" intensity="0.5"></a-light>
         <a-light type="directional" position="-1 1 -1" intensity="0.5"></a-light>
         <a-light type="directional" position="-1 1 1" intensity="0.5"></a-light>
         <a-light type="directional" position="1 1 -1" intensity="0.5"></a-light>
         <a-light type="ambient" color="#445451"></a-light>
 
-        <!-- Add a camera with look-controls and wasd-controls -->
+      
         <a-entity camera position="0 1.6 3" look-controls="pointerLockEnabled: true"></a-entity>
 
-        <!-- Container for the 3D model with manually applied texture -->
+   
         <a-entity id="modelContainer" position="0 0 -3" rotation="0 90 0" scale="2 2 2">
             <a-entity obj-model="obj: url(bee.obj)" material="src: url(Bee.png); side: double"></a-entity>
         </a-entity>
 
-      
-     <!-- Cylindrical Boundary with texture visible from inside -->
+
      <a-cylinder position="0 5 0" radius="10" height="10" open-ended="true" material="src: url(wall.png); opacity: 1; side: double; repeat: 5 1; "></a-cylinder>
 
      <a-sky material="src: url(sky.png); emissive: #ffffff; emissiveIntensity: 1"></a-sky>
 
 
-        <!-- Floor -->
+
         <a-plane position="0 0 0" rotation="-90 0 0" width="20" height="20" material="src: url(floor.png); emissive: #ffffff; emissiveIntensity: -0.5"></a-plane>
 
-        <!-- Camera restrictor (invisible) -->
         <a-entity geometry="primitive: box; width: 10; height: 2; depth: 10" material="opacity: 0" static-body></a-entity>
-           <!-- Boundary Box (invisible but used for restricting movement) -->
+   
          <a-box position="0 1 0" width="4" height="2" depth="4" visible="false"></a-box>
 
 
@@ -48,7 +46,7 @@
     </a-scene>
 
     <script>
-        // Add collision handling
+
         AFRAME.registerComponent('restrict-movement', {
             tick: function () {
                 const position = this.el.object3D.position;
@@ -60,7 +58,7 @@
             }
         });
 
-        // Apply the component to the camera
+
         document.querySelector('[camera]').setAttribute('restrict-movement', '');
     </script>
 </body>
