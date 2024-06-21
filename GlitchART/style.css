@@ -1,0 +1,20 @@
+/* Default styles for mobile */
+
+.container {
+    padding: 00px;
+}
+
+/* Styles for desktop */
+@media (min-width: 768px) {
+    body {
+        background-color: #f0f0f0; /* Light grey background */
+    }
+    
+    .container {
+        max-width: 1400px; /* Limit the width of the content */
+        margin: 0px auto; /* Center the content and add space at the top and bottom */
+        padding: 0px;
+        background-color: #000000; /* White background for the content */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    }
+}
